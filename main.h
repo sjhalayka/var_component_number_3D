@@ -219,6 +219,7 @@ inline float iterate(
 	const short unsigned int max_iterations,
 	const float threshold)
 {
+	// Calculate Mandelbrot set
 	C = Z;
 
 	Z.vertex_data[0] = 0.0f;

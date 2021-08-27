@@ -17,8 +17,9 @@ using namespace std;
 int main(void)
 {
 	ofstream out_bin("points.bin", ios_base::binary);
+	ofstream out_txt("points.txt");
 
-	const size_t res = 300;
+	const size_t res = 100;
 	const float grid_max = 1.5;
 	const float grid_min = -grid_max;
 	const unsigned short int max_iterations = 8;
@@ -61,12 +62,15 @@ int main(void)
 					out_bin.write(reinterpret_cast<const char*>(&Z.vertex_data[0]), sizeof(float));
 					out_bin.write(reinterpret_cast<const char*>(&Z.vertex_data[1]), sizeof(float));
 					out_bin.write(reinterpret_cast<const char*>(&Z.vertex_data[2]), sizeof(float));
+
+					out_txt << Z.vertex_data[0] << " " << Z.vertex_data[1] << " " << Z.vertex_data[2] << endl;
 				}
 			}
 		}
 	}
 
 	out_bin.close();
+	out_txt.close();
 
 	cout << in_set << " of " << total_count << endl;
 
